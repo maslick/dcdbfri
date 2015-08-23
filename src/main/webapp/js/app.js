@@ -1,28 +1,42 @@
 (function() {
     var app = angular.module('dcdb', []);
 
-    app.controller('dcdbController', ['$http', function($http){
-        var store = this;
-        store.iocs = []
+    app.controller('dcdbController', ['$http', '$scope', function($http, $scope) {
+        var thisclass = this;
+
+        $scope.show_alert = false;
+        thisclass.iocs = []
+
+        this.status = "";
+        this.newioc = {};
+
         this.updateIOCtable = function() {
             $http.get('http://localhost:8080/wildfly-helloworld/dcdb/iocs').success(function (data) {
                 console.log(data);
-                store.iocs = data;
+                thisclass.iocs = data;
             });
         }
         this.updateIOCtable();
 
-    } ]);
-
-    app.controller('addIocController', ['$http', function($http){
-        this.ioc = {};
-        this.submitIoc = function(controller) {
-            $http.post('http://localhost:8080/wildfly-helloworld/dcdb/iocs/add', this.ioc, []).success(function (data) {
-                console.log("IOC added!");
-                controller.updateIOCtable();
+        this.delete = function(id) {
+            $http.delete('http://localhost:8080/wildfly-helloworld/dcdb/iocs/delete/' + id ).success(function (data){
+                console.log(id + " was deleted from database!");
+                $scope.show_alert = true;
+                thisclass.status = id + " was deleted from database!";
+                thisclass.updateIOCtable();
             });
-            this.ioc = {};
+
         };
+
+        this.submitIoc = function() {
+            $http.post('http://localhost:8080/wildfly-helloworld/dcdb/iocs/add', this.newioc, []).success(function (data) {
+                console.log("IOC added!");
+                thisclass.updateIOCtable();
+                $scope.show_alert = false;
+                thisclass.newioc = {};
+            });
+        };
+
     } ]);
 
 })();

@@ -31,4 +31,13 @@ public class IOCclass {
         em.getTransaction().commit();
         em.close();
     }
+
+    public void deleteIOC(Integer id) {
+        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        EntityManager em = factory.createEntityManager();
+        IOC ioc = em.find(IOC.class, id);
+        em.getTransaction().begin();
+        em.remove(ioc);
+        em.getTransaction().commit();
+    }
 }
