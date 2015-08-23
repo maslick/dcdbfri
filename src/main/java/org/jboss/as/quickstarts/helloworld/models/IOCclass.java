@@ -6,14 +6,10 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-/**
- * Created by maslick on 22/08/15.
- */
+
 public class IOCclass {
     static final String PERSISTENCE_UNIT_NAME = "dcdbfri";
     static EntityManagerFactory factory;
-
-
 
     public List<IOC> getIOCs() {
         factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);

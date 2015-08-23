@@ -53,6 +53,7 @@
         <version.war.plugin>2.5</version.war.plugin>
         <eclipselink.version>2.6.0</eclipselink.version>
         <jpa.version>2.1.0</jpa.version>
+        <jaxrs.version>2.0.1</jaxrs.version>
 
         <!-- maven-compiler-plugin -->
         <maven.compiler.target>1.7</maven.compiler.target>
@@ -101,6 +102,13 @@
             <groupId>org.jboss.spec.javax.servlet</groupId>
             <artifactId>jboss-servlet-api_3.1_spec</artifactId>
             <scope>provided</scope>
+        </dependency>
+
+        <!-- JAX-RS 2 REST server -->
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>${jaxrs.version}</version>
         </dependency>
 
         <!-- JPA component implemented by EclipseLink -->

@@ -3,13 +3,8 @@ package org.jboss.as.quickstarts.helloworld.models;
 import javax.persistence.*;
 
 
-/**
- * Created by maslick on 22/08/15.
- */
-
 
 @Entity
-@NamedQuery(name = "haha", query = "SELECT b from IOC b")
 public class IOC {
 
     @Id

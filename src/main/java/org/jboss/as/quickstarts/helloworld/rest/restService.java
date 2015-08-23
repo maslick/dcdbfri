@@ -8,7 +8,6 @@ import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 
 /**
@@ -24,15 +23,30 @@ public class restService {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<IOC> listIOCs() {
-        return test.getIOCs();
+    public Response listIOCs() {
+        return Response
+                .status(Response.Status.OK)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .entity(test.getIOCs())
+                .build();
     }
 
     @POST
     @Path("/add")
     public Response createIOC(IOC ioc) {
         test.insertIOC(ioc.getName(), ioc.getDescription(), ioc.getIp());
-        return Response.status(Response.Status.CREATED).entity(ioc).build();
+        return Response
+                .status(Response.Status.CREATED)
+                .header("Access-Control-Allow-Origin", "*")
+                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+                .header("Access-Control-Allow-Credentials", "true")
+                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS, HEAD")
+                .header("Access-Control-Max-Age", "1209600")
+                .entity(ioc)
+                .build();
     }
 }
 
