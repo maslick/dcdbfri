@@ -60,5 +60,6 @@ Now you can access the WildFly management console with the following credentials
 $ docker run --link some-mariadb:mysql -d -p 8080:8080 -p 9990:9990 wildfly-management
 ```
 * Open a browser and navigate to the manager console (`$IP_ADDR:9990`). Click Deployments->Add and upload the war file we built previously.
+* Alternatively, clone the repo on the docker host system and deploy by issuing `mvn package wildfly:deploy`. You will be prompted for username/password (use `admin/Admin#70365`).
 
 * Go to `$IP_ADDR:8080/wildfly-helloworld/` in your browser.
