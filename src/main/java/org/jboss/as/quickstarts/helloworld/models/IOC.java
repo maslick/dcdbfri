@@ -5,6 +5,7 @@ import javax.persistence.*;
 
 
 @Entity
+@NamedQuery(name="IOC.findAll", query="SELECT b FROM IOC b")
 public class IOC {
 
     @Id
