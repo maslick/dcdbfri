@@ -3,6 +3,7 @@ package org.jboss.as.quickstarts.helloworld.rest;
 import org.jboss.as.quickstarts.helloworld.models.IOCclass;
 import org.jboss.as.quickstarts.helloworld.models.IOC;
 
+
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.ws.rs.*;

@@ -10,15 +10,21 @@
 
     </head>
 
-    <body ng-controller="dcdbController as dcdbCtrl">
+    <body ng-controller="dcdbController as dcdbCtrl" id="mystyle">
         <div class="container">
-            <h1 align="center">DCDB API. <a href ng-click="dcdbCtrl.updateIOCtable()"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span></a></h1>
+            <h1 align="center">#dcdb api <a href ng-click="dcdbCtrl.updateIOCtable()">
+                <span class="glyphicon glyphicon-refresh" style="vertical-align: text-bottom" aria-hidden="true">
+                </span></a></h1>
+            <hr>
 
             <div class="row">&nbsp;</div>
             <div class="row">
                 <div class="col-xs-4">
-
-                    <table class="table table-hover" >
+                    <div class="alert alert-info" ng-show="show_alert">
+                        <button type="button" class="close" ng-click="show_alert=false">&times;</button>
+                        <strong>Warning!</strong> {{ dcdbCtrl.status }}
+                    </div>
+                    <table class="table table-striped" >
                         <thead>
                             <tr>
                                 <td><strong>#</strong></td>
@@ -40,6 +46,7 @@
                         </tbody>
                     </table>
 
+
                 </div>
                 <div class="col-xs-2"></div>
                 <div class="col-xs-4"> <!-- ng-controller="addIocController as iocCtrl"-->
@@ -48,22 +55,24 @@
                             <legend align="right">Add new IOC</legend>
 
 
-                            <input ng-model="dcdbCtrl.newioc.name" class="form-control" type="text" placeholder="name" class="radius">
-                            <span class="help-block">IOC name, e.g. <i>ioc1</i></span>
+                            <input ng-model="dcdbCtrl.newioc.name" class="form-control" type="text" placeholder="IOC name, e.g. ioc1" class="radius">
+                            <span class="help-block"></span>
 
-                            <input ng-model="dcdbCtrl.newioc.ip" class="form-control" type="text" placeholder="ip">
-                            <span class="help-block">IP-address, e.g. <i>127.0.0.1</i></span>
-                            <textarea ng-model="dcdbCtrl.newioc.description" class="form-control" rows="2" placeholder="description"></textarea>
+                            <input ng-model="dcdbCtrl.newioc.ip" class="form-control" type="text" placeholder="IP-address, e.g. 127.0.0.1">
+                            <span class="help-block"></span>
+                            <textarea ng-model="dcdbCtrl.newioc.description" class="form-control" rows="5" placeholder="Description"></textarea>
 
                             <br>
                             <button class="btn btn-large btn-success btn-block">Submit</button>
                         </fieldset>
 
                     </form>
+                    <!--
                     <div class="alert alert-info" ng-show="show_alert">
                         <button type="button" class="close" ng-click="show_alert=false">&times;</button>
                         <strong>Warning!</strong> {{ dcdbCtrl.status }}
                     </div>
+                    -->
 
                     <div>
                         <table class="table table-responsive">
@@ -76,6 +85,8 @@
                     </div>
                 </div>
             </div>
+            <hr>
+            <h5 class="text-center">=maslick=</h5>
         </div>
 
     </body>

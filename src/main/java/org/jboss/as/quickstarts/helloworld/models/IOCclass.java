@@ -11,8 +11,10 @@ import java.util.Map;
 
 public class IOCclass {
     static final String PERSISTENCE_UNIT_NAME = "dcdbfri";
+    EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME, persistConfig());
+    EntityManager em = factory.createEntityManager();
 
-    private EntityManager CreateEntityManager() {
+    private Map<String, Object> persistConfig() {
         Map<String, String> env = System.getenv();
         Map<String, Object> configOverrides = new HashMap<String, Object>();
 
@@ -46,21 +48,16 @@ public class IOCclass {
             configOverrides.put("javax.persistence.jdbc.password", pwd);
         }
 
-
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME, configOverrides);
-        EntityManager em = factory.createEntityManager();
-        return em;
+        return configOverrides;
     }
 
     public List<IOC> getIOCs() {
-        EntityManager em = CreateEntityManager();
         Query q = em.createQuery("select t from IOC t");
         List<IOC> ioclist = q.getResultList();
         return ioclist;
     }
 
     public void insertIOC(String name, String desc, String ip) {
-        EntityManager em = CreateEntityManager();
         em.getTransaction().begin();
         IOC ioc = new IOC();
         ioc.setDescription(desc);
@@ -72,7 +69,6 @@ public class IOCclass {
     }
 
     public void deleteIOC(Integer id) {
-        EntityManager em = CreateEntityManager();
         IOC ioc = em.find(IOC.class, id);
         em.getTransaction().begin();
         em.remove(ioc);

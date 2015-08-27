@@ -6,3 +6,20 @@
     border-radius: 6px;
 }
 
+#mystyle h1, h5{
+    font-family: monospace;
+}
+
+#mystyle legend {
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+    font-size: medium;
+}
+
+#mystyle table {
+    font-family: 'DejaVu Serif', Georgia, "Times New Roman", Times, serif;
+}
+
+#mystyle hr {
+    margin: 0px 0 0px 0;
+}
+
