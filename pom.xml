@@ -135,6 +135,13 @@
             <version>5.1.25</version>
         </dependency>
 
+        <!-- EJB -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <version>1.0.0.Final</version>
+        </dependency>
+
     </dependencies>
     
     
