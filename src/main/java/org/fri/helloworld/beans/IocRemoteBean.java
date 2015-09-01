@@ -1,11 +1,12 @@
-package org.fri.helloworld.bean;
+package org.fri.helloworld.beans;
 
 
 import org.fri.helloworld.models.DbConfig;
 import org.fri.helloworld.models.IOC;
 
 
-import javax.ejb.Stateless;
+
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -14,9 +15,8 @@ import java.util.List;
 
 
 
-
-@Stateless
-public class IocLocalBean {
+@Stateful
+public class IocRemoteBean implements IocInterface {
     private static final String PERSISTENCE_UNIT_NAME = "dcdbfri";
     private EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME, DbConfig.getPersistConfig());
     private EntityManager em = factory.createEntityManager();

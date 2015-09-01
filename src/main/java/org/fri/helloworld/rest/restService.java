@@ -1,17 +1,14 @@
 package org.fri.helloworld.rest;
 
-import org.fri.helloworld.bean.IocLocalBean;
-import org.fri.helloworld.models.DbConfig;
+import org.fri.helloworld.beans.IocLocalBean;
 import org.fri.helloworld.models.IOC;
 
 
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.persistence.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.List;
 
 
 /**
