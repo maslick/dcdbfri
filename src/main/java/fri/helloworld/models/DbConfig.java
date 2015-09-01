@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.helloworld.models;
+package fri.helloworld.models;
 
 import java.util.HashMap;
 import java.util.Map;

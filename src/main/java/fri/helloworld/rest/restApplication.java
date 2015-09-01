@@ -1,4 +1,4 @@
-package org.jboss.as.quickstarts.helloworld.rest;
+package fri.helloworld.rest;
 
 
 import javax.ws.rs.ApplicationPath;

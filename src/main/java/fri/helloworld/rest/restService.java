@@ -1,7 +1,7 @@
-package org.jboss.as.quickstarts.helloworld.rest;
+package fri.helloworld.rest;
 
-import org.jboss.as.quickstarts.helloworld.models.DbConfig;
-import org.jboss.as.quickstarts.helloworld.models.IOC;
+import fri.helloworld.models.DbConfig;
+import fri.helloworld.models.IOC;
 
 
 import javax.enterprise.context.RequestScoped;
@@ -9,9 +9,7 @@ import javax.persistence.*;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 
 /**
