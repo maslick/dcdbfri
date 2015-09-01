@@ -7,7 +7,7 @@
              version="2.1">
 <persistence-unit name="dcdbfri" transaction-type="RESOURCE_LOCAL">
 
-    <class>org.jboss.as.quickstarts.helloworld.models.IOC</class>
+    <class>org.fri.helloworld.models.IOC</class>
 
     <properties>
         <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

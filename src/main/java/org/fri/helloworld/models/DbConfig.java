@@ -1,4 +1,4 @@
-package fri.helloworld.models;
+package org.fri.helloworld.models;
 
 import java.util.HashMap;
 import java.util.Map;

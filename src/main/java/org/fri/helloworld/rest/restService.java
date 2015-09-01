@@ -1,7 +1,7 @@
-package fri.helloworld.rest;
+package org.fri.helloworld.rest;
 
-import fri.helloworld.models.DbConfig;
-import fri.helloworld.models.IOC;
+import org.fri.helloworld.models.DbConfig;
+import org.fri.helloworld.models.IOC;
 
 
 import javax.enterprise.context.RequestScoped;

@@ -1,4 +1,4 @@
-package fri.helloworld.rest;
+package org.fri.helloworld.rest;
 
 
 import javax.ws.rs.ApplicationPath;
