@@ -1,12 +1,12 @@
 package org.fri.helloworld.models;
 
 import javax.persistence.*;
-
+import java.io.Serializable;
 
 
 @Entity
 @NamedQuery(name="IOC.findAll", query="SELECT b FROM IOC b")
-public class IOC {
+public class IOC implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

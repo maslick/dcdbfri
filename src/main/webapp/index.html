@@ -15,14 +15,22 @@
 
     </head>
 
-    <body ng-controller="dcdbController as dcdbCtrl" id="mystyle">
+    <body ng-controller="dcdbController as dcdbCtrl" id="mystyle" ng-cloak>
         <div class="container">
             <h1 align="center">#dcdb api <a href ng-click="dcdbCtrl.updateIOCtable()">
                 <span class="glyphicon glyphicon-refresh" style="vertical-align: text-bottom" aria-hidden="true">
-                </span></a></h1>
+                </span></a>
+            </h1>
             <hr>
+            <div class="row">&nbsp;</div>
+
+            <div class="text-center">
+                <input ng-model="dcdbCtrl.remote" type="checkbox" ng-checked="dcdbCtrl.remote"> Remote access to EJB ({{ dcdbCtrl.remote }})
+            </div>
 
             <div class="row">&nbsp;</div>
+            <div class="row">&nbsp;</div>
+
             <div class="row">
                 <div class="col-xs-4">
 
