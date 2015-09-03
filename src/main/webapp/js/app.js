@@ -1,7 +1,7 @@
 (function() {
     var app = angular.module('dcdb', []);
 
-    app.controller('dcdbController', ['$http', '$window', function($http, $window) {
+    app.controller('dcdbController', ['$http', '$window', '$scope', function($http, $window, $scope) {
         var thisclass = this;
         this.iocs = [];
         this.newioc = {};
@@ -47,12 +47,22 @@
         };
 
         this.submitIoc = function() {
-            $http.post(this.getRestPrefix() + '/add', this.newioc, []).success(function (data) {
-                console.log("IOC added!");
-                thisclass.notify("ADD", "New IOC added", "glyphicon glyphicon-plus");
-                thisclass.updateIOCtable();
-                thisclass.newioc = {};
-            });
+            if ($scope.addIOCform.$valid) {
+                $http.post(this.getRestPrefix() + '/add', this.newioc, []).success(function (data) {
+                    console.log("IOC added!");
+                    thisclass.notify("ADD", "New IOC added", "glyphicon glyphicon-plus");
+                    thisclass.updateIOCtable();
+                    thisclass.newioc = {};
+                });
+            }
+            else {
+                if (!$scope.addIOCform.name.$valid) {
+                    this.notify("Validation Error", "IOC name not provided!", "glyphicon glyphicon-thumbs-down");
+                }
+                if (!$scope.addIOCform.ip.$valid) {
+                    this.notify("Validation Error", "IP not provided!", "glyphicon glyphicon-thumbs-down");
+                }
+            }
         };
 
     } ]);

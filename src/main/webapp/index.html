@@ -22,11 +22,13 @@
                 </span></a>
             </h1>
             <hr>
-            <div class="row">&nbsp;</div>
 
-            <div class="text-center">
-                <input ng-model="dcdbCtrl.remote" type="checkbox" ng-checked="dcdbCtrl.remote"> Remote access to EJB ({{ dcdbCtrl.remote }})
+            <div class="checkbox text-center">
+                <label>
+                    <input ng-model="dcdbCtrl.remote" type="checkbox" ng-checked="dcdbCtrl.remote"> Remote access to EJB ({{ dcdbCtrl.remote }})
+                </label>
             </div>
+
 
             <div class="row">&nbsp;</div>
             <div class="row">&nbsp;</div>
@@ -56,24 +58,33 @@
                         </tbody>
                     </table>
 
-
                 </div>
-                <div class="col-xs-2"></div>
-                <div class="col-xs-4"> <!-- ng-controller="addIocController as iocCtrl"-->
-                    <form class="form-horizontal" name="addIOCform" ng-submit="dcdbCtrl.submitIoc()">
+                <div class="col-xs-3"></div>
+                <div class="col-xs-3">
+                    <form class="form-horizontal" name="addIOCform" ng-submit="dcdbCtrl.submitIoc()" novalidate>
                         <fieldset>
-                            <legend align="right">Add new IOC</legend>
+
+                            <!-- IOC NAME -->
+                            <div class="form-group" ng-class="{ 'has-error' : addIOCform.name.$invalid }">
+                                <legend align="right">Add new IOC</legend>
+                                <input name="name" ng-model="dcdbCtrl.newioc.name" type="text"
+                                       placeholder="IOC name, e.g. ioc1" class="form-control has-error" required=""/ text>
+                            </div>
+
+                            <!-- IP ADDR -->
+                            <div class="form-group" ng-class="{ 'has-error' : addIOCform.ip.$invalid }">
+                                <input name="ip" ng-model="dcdbCtrl.newioc.ip" class="form-control" type="text"
+                                       ng-pattern="/\b(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\b/"
+                                       placeholder="IP-address, e.g. 127.0.0.1" required="" />
+                        </div>
 
 
-                            <input ng-model="dcdbCtrl.newioc.name" class="form-control" type="text" placeholder="IOC name, e.g. ioc1" class="radius">
-                            <span class="help-block"></span>
-
-                            <input ng-model="dcdbCtrl.newioc.ip" class="form-control" type="text" placeholder="IP-address, e.g. 127.0.0.1">
-                            <span class="help-block"></span>
-                            <textarea ng-model="dcdbCtrl.newioc.description" class="form-control" rows="5" placeholder="Description"></textarea>
-
-                            <br>
-                            <button class="btn btn-large btn-success btn-block">Submit</button>
+                            <!-- DESCRIPTION -->
+                            <div class="form-group">
+                                <textarea ng-model="dcdbCtrl.newioc.description" class="form-control" rows="5" placeholder="Description"></textarea>
+                                <br>
+                                <button class="btn btn-large btn-success btn-block">Submit</button>
+                            </div>
                         </fieldset>
 
                     </form>
