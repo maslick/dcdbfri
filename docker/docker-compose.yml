@@ -1,0 +1,17 @@
+dcdbfri_db:
+    image: mariadb
+    environment:
+        - MYSQL_ROOT_PASSWORD=root12
+        - MYSQL_DATABASE=dcdbfri
+        - MYSQL_USER=bled
+        - MYSQL_PASSWORD=bled
+    ports: 
+        - "3307:3306"
+
+dcdbfri_wildfly:
+    image: wildfly-management:latest
+    links:
+        - dcdbfri_db:mysql
+    ports:
+        - "8080:8080"
+        - "9990:9990"
