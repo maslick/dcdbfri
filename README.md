@@ -30,8 +30,13 @@ $ mysql.server restart
 * Deploy the `war` package onto the server (e.g. Wildfly): `mvn wildfly:deploy`
 * Open `localhost:8080/wildfly-helloworld/` in your browser
 
-
 ## Using docker
+Execute ``./install.sh`` in the ``docker`` directory.
+
+## Using docker-compose
+Execute ``./install-compose.sh`` in the ``docker`` directory.
+
+## Using docker (verbose)
 * Clone and package
 ```
 $ git clone https://github.com/maslick/dcdbfri
