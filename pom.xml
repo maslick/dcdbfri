@@ -88,6 +88,7 @@
                 <configuration>
                     <username>admin</username>
                     <password>Admin#70365</password>
+		    <port>9990</port>
                 </configuration>
             </plugin>
             <!-- Compiler plugin enforces Java 1.6 compatibility and activates 
